@@ -6,8 +6,58 @@ const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const lightboxClose = document.getElementById('lightbox-close');
 const galleryItems = document.querySelectorAll('.gallery-item');
+const cursorPaw = document.getElementById('cursor-paw');
+const cursorRing = document.getElementById('cursor-ring');
 
 document.addEventListener('DOMContentLoaded', function() {
+    /* Custom cat paw cursor */
+    if (cursorPaw && cursorRing) {
+        let mouseX = 0, mouseY = 0;
+        let pawX = 0, pawY = 0;
+        let ringX = 0, ringY = 0;
+        const pawLerp = 0.2;
+        const ringLerp = 0.1;
+        const hoverable = 'a, button, .cta-button, .gallery-item, .social-link, .back-to-top, .lightbox-close, .contact-value, .contact-item, input, textarea, .nav-link, [tabindex]';
+
+        function handleMouseMove(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            const target = e.target;
+            if (target.closest(hoverable)) {
+                cursorRing.classList.add('hover');
+                cursorPaw.classList.add('hover');
+            } else {
+                cursorRing.classList.remove('hover');
+                cursorPaw.classList.remove('hover');
+            }
+
+            if (target.tagName === 'A' || target.closest('a')) {
+                cursorPaw.classList.add('link');
+                cursorRing.classList.add('hover');
+            } else {
+                cursorPaw.classList.remove('link');
+            }
+        }
+
+        function animateCursor() {
+            pawX += (mouseX - pawX) * pawLerp;
+            pawY += (mouseY - pawY) * pawLerp;
+
+            ringX += (pawX - ringX) * ringLerp;
+            ringY += (pawY - ringY) * ringLerp;
+
+            cursorPaw.style.left = pawX + 'px';
+            cursorPaw.style.top = pawY + 'px';
+            cursorRing.style.left = ringX + 'px';
+            cursorRing.style.top = ringY + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+
+        document.addEventListener('mousemove', handleMouseMove);
+        animateCursor();
+    }
     /* Navbar scroll effect */
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
