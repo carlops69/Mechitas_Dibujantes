@@ -233,6 +233,16 @@
             else if (e.key === 'ArrowLeft') anterior();
         });
 
+        /* ----- Foco atrapado dentro del lightbox ----- */
+        // Mientras el lightbox este abierto, el foco no puede salirse de el.
+        // Tambien arregla que el navegador ponga el foco en la foto pulsada
+        // DESPUES de nuestro foco, pisandonoslo.
+        document.addEventListener('focusin', function(e) {
+            if (!lightbox || !lightbox.classList.contains('active')) return;
+            if (lightbox.contains(e.target)) return;
+            if (lightboxClose) lightboxClose.focus();
+        });
+
         /* ----- Galeria: aparece al hacer scroll (con plan B) ----- */
         if ('IntersectionObserver' in window && !reduceMotion) {
             const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
