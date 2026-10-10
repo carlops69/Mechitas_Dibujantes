@@ -424,8 +424,8 @@ ul {
     color: var(--color-primary);
     margin-bottom: 1rem;
     font-weight: 700;
-    opacity: 0;
-    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    /* Sin opacity 0 aqui: si la animacion no corre, el titulo se ve igual */
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) both;
     animation-delay: 0.3s;
 }
 
@@ -433,8 +433,7 @@ ul {
     font-size: clamp(1.1rem, 2.5vw, 1.5rem);
     color: var(--color-text-light);
     margin-bottom: 2rem;
-    opacity: 0;
-    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) both;
     animation-delay: 0.5s;
 }
 
@@ -448,8 +447,7 @@ ul {
     font-size: 1rem;
     transition: var(--transition-color);
     box-shadow: 0 4px 15px rgba(209, 135, 126, 0.3);
-    opacity: 0;
-    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) both;
     animation-delay: 0.7s;
 }
 
@@ -1002,10 +1000,8 @@ html.js .gallery-item:not(.appear) {
 }
 
 @keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pulse-slow {
