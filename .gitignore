@@ -1,0 +1,7 @@
+# Archivos que NO deben subirse a GitHub
+_dims.json
+*.bak
+.DS_Store
+Thumbs.db
+desktop.ini
+node_modules/
