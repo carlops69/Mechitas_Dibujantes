@@ -5,7 +5,12 @@
 }
 
 :root {
-    --color-primary: #D1877E;
+    --color-primary: #CA827A;
+    /* El rosa de los botones tiene que ser mas oscuro para que el texto
+       blanco se lea (contraste 4.5:1, norma WCAG). Con #D1877E era 2.8:1
+       y el texto casi no se veia. */
+    --color-btn: #A06760;
+    --color-btn-hover: #8F5851;
     --color-primary-dark: #B9726C;
     --color-secondary: #CB845A;
     --color-accent: #F3C5B5;
@@ -16,6 +21,15 @@
     --color-white: #FFFFFF;
     --color-light: #CCCCCC;
     --color-tiktok: #69C9D0;
+    /* Verdes: el del boton es el de marca, pero el texto va en verde
+       oscuro porque el blanco sobre verde claro no se leia (1.98:1). */
+    --color-whatsapp: #25d36e;
+    --color-whatsapp-hover: #1eb862;
+    --color-whatsapp-text: #0D3B1E;
+    /* El icono sobre fondo blanco necesita un verde mas oscuro
+       (el verde de marca solo daba 1.98:1) */
+    --color-whatsapp-icon: #1a9e52;
+    --color-green-text: #168847;
     --transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
     --transition-soft: all 0.55s cubic-bezier(0.25, 0.1, 0.25, 1);
     --transition-color: color 0.45s cubic-bezier(0.25, 0.1, 0.25, 1),
@@ -64,7 +78,7 @@ a, button, .gallery-item {
     position: absolute;
     top: -100px;
     left: 0;
-    background: var(--color-primary);
+    background: var(--color-btn);
     color: var(--color-white);
     padding: 0.8rem 1.5rem;
     text-decoration: none;
@@ -98,8 +112,14 @@ a, button, .gallery-item {
     z-index: 9999;
     transform: translate(-50%, -50%);
     transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
-    opacity: 0.85;
+    opacity: 0;
     filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.15));
+}
+
+/* Se ve al primer movimiento del raton (lo pone el JS con .visible).
+   Asi, si el JS falla, la patita NO se queda clavada en la esquina. */
+.cursor-paw.visible {
+    opacity: 0.85;
 }
 
 .cursor-paw.hover {
@@ -129,6 +149,11 @@ a, button, .gallery-item {
     transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
     opacity: 0;
     box-shadow: 0 0 15px rgba(209, 135, 126, 0.3);
+}
+
+/* El anillo se ve suave al mover el raton y mas marcado al pasar por algo */
+.cursor-ring.visible {
+    opacity: 0.35;
 }
 
 .cursor-ring.hover {
@@ -166,6 +191,7 @@ ul {
     border-radius: 50%;
     z-index: -1;
     opacity: 0.12;
+    pointer-events: none;
 }
 
 .section-deco-1 {
@@ -254,19 +280,23 @@ ul {
 }
 
 .navbar {
-    background-color: var(--color-white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    /* Translucido SIEMPRE: antes era opaco y al hacer scroll saltaba
+       de golpe a semitransparente. Ahora el cambio es continuo. */
+    background-color: rgba(255, 255, 255, 0.85);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    backdrop-filter: blur(12px) saturate(140%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    transition: box-shadow 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: box-shadow 0.45s cubic-bezier(0.25, 0.1, 0.25, 1),
+                background-color 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .navbar.scrolled {
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.12);
     background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
 }
 
 .nav-container {
@@ -293,6 +323,8 @@ ul {
     font-weight: 500;
     font-size: 1rem;
     position: relative;
+    /* "Sobre mi" se partia en dos lineas si el menu se justaba */
+    white-space: nowrap;
     transition: var(--transition-color);
 }
 
@@ -386,6 +418,8 @@ ul {
     background: var(--color-primary);
     border-radius: 50%;
     opacity: 0.05;
+    /* Por debajo del contenido del hero (.hero-container va en z-index 2) */
+    z-index: 0;
     animation: pulse-slow 6s ease-in-out infinite;
 }
 
@@ -399,6 +433,7 @@ ul {
     background: var(--color-secondary);
     border-radius: 50%;
     opacity: 0.04;
+    z-index: 0;
     animation: pulse-slow 8s ease-in-out infinite;
 }
 
@@ -440,22 +475,22 @@ ul {
 .cta-button {
     display: inline-block;
     padding: 0.9rem 2.5rem;
-    background: var(--color-primary);
+    background: var(--color-btn);
     color: var(--color-white);
     border-radius: 30px;
     font-weight: 600;
     font-size: 1rem;
     transition: var(--transition-color);
-    box-shadow: 0 4px 15px rgba(209, 135, 126, 0.3);
+    box-shadow: 0 4px 15px rgba(160, 103, 96, 0.35);
     animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) both;
     animation-delay: 0.7s;
 }
 
 .cta-button:hover {
-    background: var(--color-primary-dark);
+    background: var(--color-btn-hover);
     color: var(--color-white);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(209, 135, 126, 0.4);
+    box-shadow: 0 6px 20px rgba(160, 103, 96, 0.45);
 }
 
 .hero-actions {
@@ -472,13 +507,13 @@ ul {
     align-items: center;
     gap: 0.5rem;
     padding: 0.35rem 1rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
     background: rgba(37, 211, 110, 0.1);
     border: 1px solid rgba(37, 211, 110, 0.35);
     border-radius: 2rem;
     font-size: 0.8rem;
     font-weight: 600;
-    color: #1a9e52;
+    color: var(--color-green-text);
     letter-spacing: 0.3px;
 }
 
@@ -496,15 +531,18 @@ ul {
     50% { opacity: 0.55; transform: scale(0.8); }
 }
 
-/* Segundo boton: WhatsApp */
+/* Segundo boton: WhatsApp. El verde es el de marca, pero el texto va
+   en verde oscuro: el blanco sobre verde claro no se leia bien. */
 .cta-whatsapp {
-    background: #25d36e;
-    box-shadow: 0 4px 15px rgba(37, 211, 110, 0.3);
+    background: var(--color-whatsapp);
+    color: var(--color-whatsapp-text);
+    box-shadow: 0 4px 15px rgba(37, 211, 110, 0.35);
 }
 
 .cta-whatsapp:hover {
-    background: #1eb862;
-    box-shadow: 0 6px 20px rgba(37, 211, 110, 0.4);
+    background: var(--color-whatsapp-hover);
+    color: var(--color-whatsapp-text);
+    box-shadow: 0 6px 20px rgba(37, 211, 110, 0.45);
 }
 
 /* La galeria esta visible por defecto. Si el JS no arranca, se ve igual.
@@ -546,13 +584,10 @@ html.js .gallery-section:not(.appear) {
     opacity: 0.6;
 }
 
-.gallery-section.appear {
-    opacity: 1;
-    transform: translateY(0);
-}
-
+/* Solo opacidad: fadeInUp tambien mueve el transform y se comia el
+   translateX(-50%) que centra la barrita, quedaba descuadrada. */
 .gallery-section.appear::before {
-    animation: fadeInUp 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    animation: fadeIn 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
     animation-delay: 0.2s;
 }
 
@@ -573,15 +608,21 @@ html.js .gallery-section:not(.appear) {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    background: var(--color-white);
+    /* Fondo suave para que se vea la foto ENTRERA. Antes era
+       height:250px fijo con object-fit:cover, que cortaba los
+       retratos y los tatuajes justo por lo interesante. */
+    background: linear-gradient(160deg, #FDFBF7 0%, #F6EFE9 100%);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     transition: transform 0.55s cubic-bezier(0.25, 0.1, 0.25, 1),
                 box-shadow 0.55s cubic-bezier(0.25, 0.1, 0.25, 1);
     transform: translateY(0);
     display: block;
     width: 100%;
+    /* Proporcion fija para que la rejilla salga limpia y pareja */
+    aspect-ratio: 4 / 5;
+    /* Marco interior: las fotos no se pegan al borde de la tarjeta */
+    padding: 0.5rem;
     border: none;
-    padding: 0;
     font: inherit;
     text-align: left;
     color: inherit;
@@ -602,10 +643,16 @@ html.js .gallery-item:not(.appear) {
     box-shadow: 0 16px 32px rgba(209, 135, 126, 0.25);
 }
 
+/* position:absolute + inset:0 = la foto ocupa SIEMPRE la tarjeta entera.
+   Con height:100% sobre un padre de altura "auto" hay navegadores que
+   no lo resuelven y la imagen se sale de la caja. */
 .gallery-item img {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: 250px;
-    object-fit: cover;
+    height: 100%;
+    /* contain = la foto se ve COMPLETA, sin cortar nada */
+    object-fit: contain;
     transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
@@ -701,7 +748,7 @@ html.js .gallery-item:not(.appear) {
 }
 
 .social-item .fa-whatsapp {
-    color: #25D36E;
+    color: var(--color-whatsapp-icon);
 }
 
 .social-value {
@@ -736,7 +783,8 @@ html.js .gallery-item:not(.appear) {
     border-radius: 16px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     text-align: center;
-    transition: var(--transition);
+    /* Solo sombra, antes era "all" y movia tambien el padding */
+    transition: box-shadow 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .contact-card:hover {
@@ -760,7 +808,7 @@ html.js .gallery-item:not(.appear) {
 }
 
 .contact-icon .fa-whatsapp {
-    color: #25D36E;
+    color: var(--color-whatsapp-icon);
 }
 
 .contact-icon .fa-instagram {
@@ -779,10 +827,11 @@ html.js .gallery-item:not(.appear) {
 }
 
 .contact-value {
+    display: inline-block;
     font-size: 1.2rem;
     color: var(--color-text);
     font-weight: 500;
-    transition: var(--transition);
+    transition: var(--transition-color);
 }
 
 .contact-value:hover {
@@ -796,13 +845,23 @@ html.js .gallery-item:not(.appear) {
 .footer {
     background: var(--color-text);
     color: var(--color-light);
-    padding: 3rem 2rem;
+    padding: 3.5rem 2rem;
     text-align: center;
+    /* Antes estaba pegado a la seccion de contacto */
+    margin-top: 1rem;
+    border-top: 3px solid var(--color-primary);
 }
 
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+/* El logo se iba a la izquierda: el footer es text-align:center pero
+   la img es display:block y no hereda el centrado del texto. */
+.footer-logo {
+    display: flex;
+    justify-content: center;
 }
 
 .footer-logo img {
@@ -836,22 +895,22 @@ html.js .gallery-item:not(.appear) {
     color: var(--color-white);
 }
 
-.social-link .fa-instagram { color: #E1306C; }
+/* Mas claro que el rosa de marca: el de marca daba 2.9:1 sobre el
+   footer oscuro y no llegaba al 3:1 que piden los iconos. */
+.social-link .fa-instagram { color: #F2477E; }
 .social-link .fa-tiktok { color: var(--color-tiktok); }
 .social-link .fa-whatsapp { color: #25D36E; }
 
 .social-link:hover {
-    background: var(--color-primary);
+    background: var(--color-btn);
     transform: translateY(-3px);
     color: var(--color-white);
-    box-shadow: 0 4px 15px rgba(209, 135, 126, 0.3);
+    box-shadow: 0 4px 15px rgba(160, 103, 96, 0.4);
 }
 
-/* Al pasar el raton, el icono tambien cambia (si no, el TikTok quedaba raro) */
-.social-link:hover i,
-.social-link:hover .fa-tiktok,
-.social-link:hover .fa-instagram,
-.social-link:hover .fa-whatsapp {
+/* Estan todos juntos y sin necesidad: el de .social-link:hover de arriba
+   ya pone el color, y estos tres iconos son sus unicos hijos. */
+.social-link:hover i {
     color: var(--color-white);
 }
 
@@ -861,7 +920,7 @@ html.js .gallery-item:not(.appear) {
     right: 2rem;
     width: 48px;
     height: 48px;
-    background: var(--color-primary);
+    background: var(--color-btn);
     color: var(--color-white);
     border: none;
     border-radius: 50%;
@@ -870,13 +929,22 @@ html.js .gallery-item:not(.appear) {
     visibility: hidden;
     transition: opacity 0.45s cubic-bezier(0.25, 0.1, 0.25, 1),
                 visibility 0.45s cubic-bezier(0.25, 0.1, 0.25, 1),
-                transform 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
+                transform 0.45s cubic-bezier(0.25, 0.1, 0.25, 1),
+                background-color 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
     font-size: 1.1rem;
+    /* Sin esto la flecha se quedaba pegada a la esquina del boton */
+    display: flex;
     align-items: center;
     justify-content: center;
     z-index: 999;
-    box-shadow: 0 4px 12px rgba(209, 135, 126, 0.3);
+    box-shadow: 0 4px 12px rgba(160, 103, 96, 0.35);
     transform: translateY(20px);
+}
+
+.back-to-top:hover {
+    background: var(--color-btn-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(160, 103, 96, 0.45);
 }
 
 .back-to-top.visible {
@@ -885,6 +953,7 @@ html.js .gallery-item:not(.appear) {
     transform: translateY(0);
 }
 
+/* El boton de arriba ya display:flex, asi que aqui solo el icono */
 .back-to-top i {
     font-size: 1.2rem;
 }
@@ -895,7 +964,9 @@ html.js .gallery-item:not(.appear) {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.92);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -904,6 +975,11 @@ html.js .gallery-item:not(.appear) {
     transition: opacity 0.45s cubic-bezier(0.25, 0.1, 0.25, 1),
                 visibility 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
     z-index: 2000;
+    /* Al pinchar en el fondo no se selecciona el texto de los controles */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .lightbox.active {
@@ -913,12 +989,19 @@ html.js .gallery-item:not(.appear) {
 
 .lightbox-img {
     max-width: 90%;
-    max-height: 90%;
+    /* 84% y no 90%: al 90% la foto se montaba encima del contador */
+    max-height: 84%;
     border-radius: 8px;
+    /* Por debajo de los controles: en movil la foto llega a los lados
+       y se comia las flechas de anterior/siguiente */
+    z-index: 1;
     opacity: 0;
     transform: scale(0.9);
     transition: opacity 0.45s cubic-bezier(0.25, 0.1, 0.25, 1),
                 transform 0.55s cubic-bezier(0.25, 0.1, 0.25, 1);
+    /* Sin esto se puede arrastrar la foto hacia fuera con el raton */
+    -webkit-user-drag: none;
+    user-select: none;
 }
 
 .lightbox.active .lightbox-img {
@@ -931,19 +1014,28 @@ html.js .gallery-item:not(.appear) {
    solo animamos color y escala para que sean accesibles siempre. */
 .lightbox-close {
     position: absolute;
-    top: 30px;
-    right: 30px;
-    font-size: 2.5rem;
+    top: 24px;
+    right: 24px;
+    font-size: 1.6rem;
     line-height: 1;
-    color: var(--color-white);
-    background: none;
+    color: var(--color-text);
+    /* Boton claro: se ve sobre el fondo negro Y sobre una foto clara */
+    background: rgba(255, 255, 255, 0.92);
     border: none;
     cursor: pointer;
-    transition: transform 0.25s ease, color 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    z-index: 2;
+    transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .lightbox-close:hover {
-    color: var(--color-primary);
+    color: var(--color-primary-dark);
+    background: var(--color-white);
     transform: scale(1.15);
 }
 
@@ -951,23 +1043,27 @@ html.js .gallery-item:not(.appear) {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 2.2rem;
-    color: var(--color-white);
-    background: rgba(0, 0, 0, 0.35);
+    font-size: 1.4rem;
+    color: var(--color-text);
+    /* Fondo claro con borde suave: se distingue tanto sobre el fondo
+       negro como sobre una foto clara (con fondo negro no se ve nada) */
+    background: rgba(255, 255, 255, 0.92);
     border: none;
     border-radius: 50%;
-    width: 54px;
-    height: 54px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    /* Por encima de la foto, que en movil llega hasta los bordes */
+    z-index: 2;
     transition: transform 0.25s ease, color 0.25s ease, background 0.25s ease;
 }
 
 .lightbox-arrow:hover {
-    color: var(--color-primary);
-    background: rgba(0, 0, 0, 0.55);
+    color: var(--color-primary-dark);
+    background: var(--color-white);
 }
 
 .lightbox-prev { left: 30px; }
@@ -978,13 +1074,13 @@ html.js .gallery-item:not(.appear) {
 
 .lightbox-counter {
     position: absolute;
-    bottom: 24px;
+    bottom: 28px;
     left: 50%;
     transform: translateX(-50%);
     color: var(--color-white);
     font-size: 0.95rem;
     font-weight: 600;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.55);
     padding: 0.35rem 1rem;
     border-radius: 1rem;
 }
@@ -1004,12 +1100,19 @@ html.js .gallery-item:not(.appear) {
     to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 @keyframes pulse-slow {
     0%, 100% { opacity: 0.08; transform: scale(1) rotate(15deg); }
     50% { opacity: 0.1; transform: scale(1.05) rotate(18deg); }
 }
 
 @media (max-width: 768px) {
+    /* El menu necesita z-index propio: sin el se colaba por debajo
+       del contenido al abrirlo. */
     .nav-menu {
         position: fixed;
         top: 0;
@@ -1019,10 +1122,33 @@ html.js .gallery-item:not(.appear) {
         max-width: 300px;
         background: var(--color-white);
         flex-direction: column;
-        padding-top: 6rem;
-        gap: 2rem;
+        /* Padding lateral: sin esto los enlaces se pegan al borde */
+        padding: 6rem 2rem 2rem;
+        gap: 1.25rem;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: var(--transition);
+        z-index: 1001;
+        overflow-y: auto;
+    }
+
+    /* Los enlaces un poco mas grandes para el dedo */
+    .nav-menu .nav-link {
+        font-size: 1.15rem;
+        padding: 0.35rem 0;
+        white-space: nowrap;
+    }
+
+    /* Velo oscuro detras del menu abierto (lo pone el JS con .menu-abierto) */
+    .navbar.menu-abierto::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1000;
+        animation: fadeIn 0.3s ease;
     }
 
     .nav-menu.active {
@@ -1031,6 +1157,8 @@ html.js .gallery-item:not(.appear) {
 
     .nav-toggle {
         display: block;
+        position: relative;
+        z-index: 1002;
     }
 
     .hero {
@@ -1041,6 +1169,21 @@ html.js .gallery-item:not(.appear) {
         height: 100px;
     }
 
+    /* El padding de 4rem se comia la pantalla en el movil */
+    .hero-container {
+        padding: 2.5rem 1.5rem;
+        border-radius: 20px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-actions .cta-button {
+        text-align: center;
+    }
+
     .contact-card {
         padding: 1.5rem;
     }
@@ -1048,11 +1191,6 @@ html.js .gallery-item:not(.appear) {
     .back-to-top {
         bottom: 1.5rem;
         right: 1.5rem;
-    }
-
-    .lightbox-close {
-        top: 20px;
-        right: 20px;
     }
 
     .cursor-paw,
@@ -1071,13 +1209,31 @@ html.js .gallery-item:not(.appear) {
     }
 
     .lightbox-arrow {
-        width: 44px;
-        height: 44px;
-        font-size: 1.8rem;
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
     }
 
-    .lightbox-prev { left: 12px; }
-    .lightbox-next { right: 12px; }
+    .lightbox-prev { left: 6px; }
+    .lightbox-next { right: 6px; }
+
+    /* Margen para que las flechas no queden encima de la foto */
+    .lightbox-img {
+        max-width: 74%;
+        max-height: 80%;
+    }
+
+    .lightbox-close {
+        top: 14px;
+        right: 14px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+    }
+
+    .lightbox-counter {
+        bottom: 18px;
+    }
 }
 
 @media (max-width: 480px) {

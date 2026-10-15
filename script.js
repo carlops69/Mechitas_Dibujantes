@@ -32,6 +32,8 @@
         navMenu.classList.toggle('active', !!open);
         navToggle.classList.toggle('active', !!open);
         navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        // El velo oscuro del menu movil lo dibuja el CSS con esta clase
+        if (navbar) navbar.classList.toggle('menu-abierto', !!open);
     }
 
     /* ===== LIGHTBOX ===== */
@@ -112,6 +114,12 @@
                 mouseX = e.clientX;
                 mouseY = e.clientY;
 
+                // Al primer movimiento se enciende el cursor.
+                // Hasta entonces se queda en opacity 0 (asi no aparece
+                // clavado en la esquina si el JS falla).
+                cursorPaw.classList.add('visible');
+                cursorRing.classList.add('visible');
+
                 const target = e.target;
                 if (target.closest && target.closest(hoverable)) {
                     cursorRing.classList.add('hover');
@@ -165,13 +173,22 @@
         /* ----- Smooth scrolling para los enlaces del menu ----- */
         Array.prototype.forEach.call(document.querySelectorAll('a[href^="#"]'), function(anchor) {
             anchor.addEventListener('click', function(e) {
+                // Se cierra PRIMERO: si el scroll peta, el menu se cierra igual.
+                // Antes estaba despues y se quedaba abierto si el scroll fallaba.
+                setMenuOpen(false);
+
                 const href = this.getAttribute('href');
                 const target = href && href.length > 1 ? document.querySelector(href) : null;
-                if (target) {
-                    e.preventDefault();
+                if (!target) return;
+                e.preventDefault();
+                try {
                     target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+                } catch (err) {
+                    // Navegador sin scrollIntoView: usamos el metodo clasico
+                    try {
+                        window.scrollTo(0, target.getBoundingClientRect().top + window.pageYOffset);
+                    } catch (e2) { /* sin manera de hacer scroll */ }
                 }
-                setMenuOpen(false);
             });
         });
 

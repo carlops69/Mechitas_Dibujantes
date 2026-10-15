@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://carlops69.github.io/Mechitas_Dibujantes/sitemap.xml
+Sitemap: https://carlops69.github.io/Mechitas_Dibujante/sitemap.xml

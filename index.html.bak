@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechitas Dibujantes | Retratos y Tatuajes Personalizados</title>
+    <meta name="description" content="Portafolio de Mechitas Dibujantes: retratos a mano, dibujos y diseños de tatuajes personalizados. Mira mi trabajo y pide el tuyo por WhatsApp.">
+    <meta name="keywords" content="retratos, dibujos, tatuajes, tatuajes personalizados, ilustraciones, portafolio, arte, Ecuador, Mechitas">
+    <meta name="author" content="Mechitas Dibujantes">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#D1877E">
+    <link rel="canonical" href="https://carlops69.github.io/Mechitas_Dibujantes/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mechitas Dibujantes">
+    <meta property="og:title" content="Mechitas Dibujantes | Retratos y Tatuajes Personalizados">
+    <meta property="og:description" content="Retratos a mano, dibujos y diseños de tatuajes hechos a medida. Mira mi portafolio y pide el tuyo.">
+    <meta property="og:url" content="https://carlops69.github.io/Mechitas_Dibujantes/">
+    <meta property="og:image" content="https://carlops69.github.io/Mechitas_Dibujantes/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_EC">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mechitas Dibujantes | Retratos y Tatuajes Personalizados">
+    <meta name="twitter:description" content="Retratos a mano, dibujos y tatuajes hechos a medida. Mira mi portafolio y pide el tuyo.">
+    <meta name="twitter:image" content="https://carlops69.github.io/Mechitas_Dibujantes/og-image.jpg">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23D1877E'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='48' font-weight='bold' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VisualArtist",
+        "name": "Mechitas Dibujantes",
+        "description": "Retratos a mano, dibujos y diseños de tatuajes personalizados.",
+        "url": "https://carlops69.github.io/Mechitas_Dibujantes/",
+        "image": "https://carlops69.github.io/Mechitas_Dibujantes/og-image.jpg",
+        "sameAs": [
+            "https://www.instagram.com/mechitas_tattoo",
+            "https://www.tiktok.com/@mechitas_dibujantes"
+        ],
+        "telephone": "+593963100901",
+        "areaServed": "Ecuador",
+        "knowsAbout": ["Retratos", "Ilustración", "Tatuajes personalizados"]
+    }
+    </script>
+</head>
+<body>
+    <a href="#retratos" class="skip-link">Saltar al contenido</a>
+
+    <div class="cursor-paw" id="cursor-paw"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Logo_Mechitas_Dibujantes.webp" alt="Logo Mechitas Dibujantes" width="400" height="467" loading="lazy" decoding="async">
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#retratos" class="nav-link">Retratos</a></li>
+                <li><a href="#tatuajes" class="nav-link">Tatuajes</a></li>
+                <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Alternar menú de navegación">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <div class="hero-container">
+            <div class="hero-logo">
+                <img src="Logo_Mechitas_Dibujantes.webp" alt="Logo Mechitas Dibujantes" width="400" height="467" fetchpriority="high" decoding="async">
+            </div>
+            <h1 class="hero-title">Mechitas Dibujantes</h1>
+                        <span class="hero-badge"><span class="hero-badge-dot"></span> Abierta a pedidos</span>
+            <p class="hero-subtitle">Dibujos | Tatuajes | Arte personalizado</p>
+            <a href="#contacto" class="cta-button">¡Contáctame para tu pedido!</a>
+                <a href="https://wa.me/593963100901" class="cta-button cta-whatsapp" target="_blank" rel="noopener noreferrer">Escríbeme por WhatsApp</a>
+        </div>
+    </section>
+
+    <section class="gallery-section" id="retratos">
+        <div class="section-container">
+            <div class="section-deco section-deco-1"></div>
+            <h2 class="section-title">Retratos</h2>
+            <p class="section-count">11 retratos disponibles</p>
+            <p class="section-description">Explora mi colección de retratos y dibujos personalizados.</p>
+            <div class="gallery-grid" id="retratos-grid">
+                    <button type="button" class="gallery-item" aria-label="Ampliar Retrato 1">
+
+                        <img src="retrato-1.webp" alt="Retrato 1" width="720" height="1280" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Retrato 2">
+
+                        <img src="retrato-2.webp" alt="Retrato 2" width="800" height="600" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Retrato 3">
+
+                        <img src="retrato-3.webp" alt="Retrato 3" width="720" height="1280" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Retrato 4">
+
+                        <img src="retrato-4.webp" alt="Retrato 4" width="800" height="450" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Retrato 5">
+
+                        <img src="retrato-5.webp" alt="Retrato 5" width="800" height="1422" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Retrato 6">
+
+                        <img src="retrato-6.webp" alt="Retrato 6" width="800" height="1152" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Retrato 7">
+
+                        <img src="retrato-7.webp" alt="Retrato 7" width="800" height="1422" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Retrato 8">
+
+                        <img src="retrato-8.webp" alt="Retrato 8" width="800" height="1422" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Retrato 9">
+
+                        <img src="retrato-9.webp" alt="Retrato 9" width="800" height="450" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Retrato 10">
+
+                        <img src="retrato-10.webp" alt="Retrato 10" width="800" height="450" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Retrato 11">
+
+                        <img src="retrato-11.webp" alt="Retrato 11" width="800" height="1422" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section alt-bg" id="tatuajes">
+        <div class="section-container">
+            <div class="section-deco section-deco-2"></div>
+            <h2 class="section-title">Tatuajes</h2>
+            <p class="section-count">12 diseños disponibles</p>
+            <p class="section-description">Diseños de tatuajes únicos, hechos a medida para ti.</p>
+            <div class="gallery-grid" id="tatuajes-grid">
+                    <button type="button" class="gallery-item" aria-label="Ampliar Tatuaje 1">
+
+                        <img src="tatuaje-1.webp" alt="Tatuaje 1" width="800" height="1067" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Tatuaje 2">
+
+                        <img src="tatuaje-2.webp" alt="Tatuaje 2" width="800" height="1195" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Tatuaje 3">
+
+                        <img src="tatuaje-3.webp" alt="Tatuaje 3" width="800" height="1067" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Tatuaje 4">
+
+                        <img src="tatuaje-4.webp" alt="Tatuaje 4" width="800" height="1067" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Tatuaje 5">
+
+                        <img src="tatuaje-5.webp" alt="Tatuaje 5" width="800" height="600" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Tatuaje 6">
+
+                        <img src="tatuaje-6.webp" alt="Tatuaje 6" width="800" height="475" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Tatuaje 7">
+
+                        <img src="tatuaje-7.webp" alt="Tatuaje 7" width="800" height="1119" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Tatuaje 8">
+
+                        <img src="tatuaje-8.webp" alt="Tatuaje 8" width="626" height="1280" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Tatuaje 9">
+
+                        <img src="tatuaje-9.webp" alt="Tatuaje 9" width="800" height="1012" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Tatuaje 10">
+
+                        <img src="tatuaje-10.webp" alt="Tatuaje 10" width="800" height="1012" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Tatuaje 11">
+
+                        <img src="tatuaje-11.webp" alt="Tatuaje 11" width="800" height="1067" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+                    <button type="button" class="gallery-item" aria-label="Ampliar Tatuaje 12">
+
+                        <img src="tatuaje-12.webp" alt="Tatuaje 12" width="626" height="1280" loading="lazy" decoding="async">
+
+                        <span class="gallery-overlay">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </span>
+
+                    </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="sobre-mi">
+        <div class="section-container">
+            <div class="section-deco section-deco-3"></div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Sobre mí</h2>
+                    <p class="about-description">
+                        ¡Hola! Soy la artista detrás de <strong>Mechitas Dibujantes</strong>. Me especializo en dibujos y tatuajes personalizados que capturan tu esencia única. Cada trazo es una conversación entre la imaginación y la realidad.
+                    </p>
+                        <p class="about-description">
+                            Mi pasión por el arte comenzó desde muy joven, y desde entonces he estado explorando diferentes estilos y técnicas. Ya sea un dibujo a mano alzada o el diseño perfecto para tu próximo tatuaje, estoy aquí para hacer realidad tus ideas.
+                        </p>
+                    <div class="social-placeholder">
+                        <div class="social-item"><i class="fab fa-instagram"></i> Instagram: <span class="social-value">@mechitas_tattoo</span></div>
+                        <div class="social-item"><i class="fab fa-whatsapp"></i> WhatsApp: <span class="social-value">+593 96 310 0901</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contacto">
+        <div class="section-container">
+            <div class="section-deco section-deco-1"></div>
+            <h2 class="section-title">¡Hablemos!</h2>
+            <p class="section-description">¿Listo para tu próximo dibujo o tatuaje? Contáctame por WhatsApp o sígueme en redes sociales.</p>
+            <div class="contact-card">
+                <div class="contact-item">
+                    <span class="contact-icon"><i class="fab fa-whatsapp"></i></span>
+                    <h3 class="contact-label">WhatsApp</h3>
+                    <a href="https://wa.me/593963100901" class="contact-value whatsapp-link" target="_blank" rel="noopener noreferrer">+593 96 310 0901</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon"><i class="fab fa-instagram"></i></span>
+                    <h3 class="contact-label">Instagram</h3>
+                    <a href="https://www.instagram.com/mechitas_tattoo?igsh=b2k0cGh5OXN0amhq" class="contact-value" target="_blank" rel="noopener noreferrer">@mechitas_tattoo</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon"><i class="fab fa-tiktok"></i></span>
+                    <h3 class="contact-label">TikTok</h3>
+                    <a href="https://www.tiktok.com/@mechitas_dibujantes?_r=1&_t=ZS-98lx04Kogyq" class="contact-value" target="_blank" rel="noopener noreferrer">@mechitas_dibujantes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="Logo_Mechitas_Dibujantes.webp" alt="Logo Mechitas Dibujantes" width="400" height="467" loading="lazy" decoding="async">
+            </div>
+            <p class="footer-text">&copy; <span id="anio"></span> Mechitas Dibujantes. Todos los derechos reservados.</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/mechitas_tattoo?igsh=b2k0cGh5OXN0amhq" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@mechitas_dibujantes?_r=1&_t=ZS-98lx04Kogyq" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://wa.me/593963100901" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
+        <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Cerrar">&times;</button>
+    <button type="button" class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Foto anterior"><i class="fas fa-chevron-left"></i></button>
+    <button type="button" class="lightbox-arrow lightbox-next" id="lightbox-next" aria-label="Foto siguiente"><i class="fas fa-chevron-right"></i></button>
+    <span class="lightbox-counter" id="lightbox-counter" aria-live="polite"></span>
+        <img class="lightbox-img" id="lightbox-img" alt="Imagen ampliada">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
